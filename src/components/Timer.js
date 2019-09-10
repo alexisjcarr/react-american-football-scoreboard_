@@ -5,6 +5,11 @@ const styles = {
   flexDirection: "column"
 };
 
+const buttonRow = {
+  display: "flex",
+  justifyContent: "space-between"
+};
+
 const Timer = () => {
   const [seconds, setSeconds] = useState(900); //15 minutes in seconds
   const [running, setRunning] = useState(false);
@@ -46,10 +51,14 @@ const Timer = () => {
       <div className="timer">
         {minutes}:{seconds_}
       </div>
-      <button onClick={() => toggleRunning()}>
-        {running ? "PAUSE TIME" : "START TIME"}
-      </button>
-      <button onClick={() => reset()}>RESET</button>
+      <div style={buttonRow}>
+        <button onClick={() => toggleRunning()}>
+          {running ? "PAUSE" : "START"}
+        </button>
+        <button style={{ background: "#a2272d" }} onClick={() => reset()}>
+          RESET
+        </button>
+      </div>
     </div>
   );
 };
